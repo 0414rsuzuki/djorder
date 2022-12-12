@@ -1,0 +1,49 @@
+{% load static %}
+<!doctype html>
+<html lang="ja">
+<head>
+    <meta charset="utf-8">
+    <title>{{title}}</title>
+    <link rel="stylesheet" 
+    href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" 
+    crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{% static 'order/css/style.css' %}">
+    <img src="{% static 'images/backimage.jpg' %}"> 
+    <style type="text/css">
+        .table-hover tbody tr:hover td, .table-hover tbody tr:hover th {
+        background-color: #efeeed;
+        }
+        </style>
+</head>
+<body class="container">
+    <div class="jumbotron text-center font-weight-light" %}>
+    <h1 class="display-4 text-secondary "> 
+        {{title}}</h1>
+            <form class="form-group text-dark font-weight-light justify-content-center" action="{% url 'confilm' %}" method="post">
+                <div class ="col-md-5 mx-auto"> 
+                    {{ form.as_p}}
+                    {{ numberform.as_p}}
+                    {% csrf_token %}
+                </div>
+            <tr><input type="submit" class="btn btn-secondary rounded-pill" value="商品登録"></form>
+            <td> <a href="{% url 'check_order' %}" method="post"><input type="submit" class="btn btn-secondary rounded-pill"
+                value="発注確定"></a></td></tr></div>
+
+        <p class="h4 text-secondary text-center">
+        {{message}}</p>
+        <table class="table table-hover text-center">
+                <tr><tr></tr>
+                    <td>商品名</td>
+                    <td>点数</td>
+                </tr>
+                    {% for item in print_data %}
+                    <tr>
+                        <td>{{item.order_item}}</td>
+                        <td>{{item.order_count}}</td>
+                        <td><a href="{% url 'delete' item.id %}" class="btn btn-secondary rounded-pill">削除</a>
+                        </div></td>
+                    </tr>
+                {% endfor %}   
+        </table>         
+    </body>
+</html>

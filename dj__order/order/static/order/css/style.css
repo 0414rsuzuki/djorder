@@ -1,0 +1,8 @@
+.jumbotron{background-image:url("../images/backimage.jpg");
+background-size: cover;
+background-repeat:no-repeat;
+}
+
+.table-hover tr:hover td, .table-hover tr:hover th {
+background-color: #c6c3bf;
+}

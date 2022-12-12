@@ -1,0 +1,13 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+<p> {{ title }} </p>
+<p>{{date}} </p>
+<p>以下の商品を発注致します。納期記載の上ReMail頂きますようお願い致します。</p>
+<p>発注番号{{ order_number}}</p>
+<P> {% for item in order_data %}
+発注商品　{{item.order_item}}  点数{{item.order_count}}  
+{% endfor %}</P>
+<p>(株)鈴木　担当　鈴木</p>
+<p>納品先…京都府京都市左京区〇〇〇</p>
+<p>MAIL:suzuki@gmail.com TEL:090〇〇〇</p>
+    
