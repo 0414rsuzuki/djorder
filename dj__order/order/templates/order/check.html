@@ -3,13 +3,13 @@
 <html lang="ja">
 <head>
     <meta charset="utf-8">
-    <title>{{title}}</title>
-    <link rel="stylesheet" 
-    href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" 
-    crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="{% static 'order/css/style2.css' %}">
-    <img src="{% static 'images/backimage2.jpg' %}"> 
-    <style type="text/css">
+        <title>{{title}}</title>
+        <link rel="stylesheet" 
+        href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" 
+        crossorigin="anonymous">
+        <link rel="stylesheet" type="text/css" href="{% static 'order/css/style2.css' %}">
+        <img src="{% static 'images/backimage2.jpg' %}"> 
+        <style type="text/css">
         .table-hover tbody tr:hover td, .table-hover tbody tr:hover th {
         background-color: #efeeed;
         }
@@ -18,13 +18,12 @@
 
 <body class="container">
     <div class="jumbotron text-center font-weight-light" >
-    <h1 class="display-4 text-secondary "> 
-            {{title}}</h1>
-            <form class="form-group text-dark font-weight-light " action="{% url 'mail' %}" method="post">
-                    <div class ="col-md-5 mx-auto"> {{ order_number.as_p }}</div>
-                    <div class ="col-md-5 mx-auto"> {{ address.as_p }}</div>
-                {% csrf_token %}
-            <input class="btn btn-secondary rounded-pill" type="submit" value="メール送信"></a></form>
+        <h1 class="display-4 text-secondary "> {{title}}</h1>
+        <form class="form-group text-dark font-weight-light " action="{% url 'mail' %}" method="post">
+            <div class ="col-md-5 mx-auto"> {{ order_number.as_p }}</div>
+            <div class ="col-md-5 mx-auto"> {{ address.as_p }}</div>
+            {% csrf_token %}
+        <input class="btn btn-secondary rounded-pill" type="submit" value="メール送信"></a></form>
         <a href="{% url 'back' %}"><input class="btn btn-secondary rounded-pill" type="submit" value="発注画面に戻る"></a></div>
     </div>
 
